@@ -1,4 +1,5 @@
 # edzy
 Education made lazier
 
-Website at edzy.tech
+## Homepage
+Website at [edzy.tech](https://edzy.tech)
