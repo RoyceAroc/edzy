@@ -1,4 +1,4 @@
-# edzy
+# EdZy
 Education made lazier
 
 ## Homepage
