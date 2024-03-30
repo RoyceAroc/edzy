@@ -2,4 +2,4 @@
 Education made lazier
 
 ## Homepage
-Website at [edzy.tech](https://edzy.tech)
+Website at [www.edzy.tech](https://www.edzy.tech)
