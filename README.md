@@ -1,0 +1,2 @@
+# edzy
+Education made lazier
