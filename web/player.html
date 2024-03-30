@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Player</title>
+</head>
+
+<body>
+	<iframe id="mainPlayer" src="https://www.youtube.com/embed/id_here" title="YouTube video player" frameborder="0"
+		allow="autoplay;"></iframe>
+
+	<script>
+		window.addEventListener("message", e => {
+			document.getElementById("mainPlayer").src = `${e.data}`;
+
+			function deleteEls(els) {
+				els.forEach(el => el.parentNode.removeChild(el));
+			}
+
+			function deleteElsInFrames(frames) {
+				frames.forEach(frame => {
+					try {
+						const frameDoc = frame.contentDocument || frame.contentWindow.document;
+						const frameEls = frameDoc.querySelectorAll('.ytp-show-cards-title');
+						deleteEls(frameEls);
+						deleteElsInFrames(frameDoc.querySelectorAll('iframe'));
+					} catch (error) {
+						console.error('Error:', error);
+					}
+				});
+			}
+
+			deleteEls(document.querySelectorAll('.ytp-show-cards-title'));
+			deleteElsInFrames(document.querySelectorAll('iframe'));
+		});
+
+		const observer = new ResizeObserver(entries => {
+			const player = document.getElementById("mainPlayer");
+			const bodyWidth = document.body.clientWidth;
+			player.style.width = `${bodyWidth}px`;
+			player.style.height = `${bodyWidth - (0.44 * bodyWidth)}px`;
+		});
+
+		observer.observe(document.body);
+	</script>
+</body>
+
+</html>
