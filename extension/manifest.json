@@ -1,0 +1,51 @@
+{
+    "manifest_version": 3,
+    "name": "Edzy",
+    "description": "Revolutionize Your Video Watching! Skip Straight to the Action with AI Generated Timestamps! Zoom Through Content, No More Waiting!",
+    "version": "1.1",
+    "icons": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+    "background": {
+      "service_worker": "scripts/background.js"
+    },
+    "action": {
+      "default_icon": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+      }
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["sidepanel.js"]
+        },
+        {
+          "matches": ["*://*.openai.com/*"],
+          "js": ["scripts/openai.js"]
+        }
+    ],
+    "permissions": ["scripting", "activeTab", "contextMenus", "sidePanel", "storage"],
+    "side_panel": {
+      "default_path": "sidepanel.html"
+    },
+    "commands": {
+      "_execute_action": {
+        "suggested_key": {
+          "default": "Ctrl+Q",
+          "mac": "Command+E"
+        }
+      }
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["loading.html"],
+        "matches": [ "<all_urls>" ]
+      }
+  ]
+  }

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Sidepanel</title>
+    <style>
+        html,body {
+            background-color: black;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        *:focus {
+            outline: none;
+        }
+        
+        @media only screen and (min-width: 10px) and  (max-width: 600px) {
+            #search-input {
+                width: 70%;
+            }
+            #search-icon {
+                right: 7.5%;
+            }
+        }
+        
+        @media only screen and (min-width: 601px) {
+            #search-input {
+                width: 75%;
+            }
+
+        }
+
+        @media only screen and (min-width: 501px) {
+            
+            #search-icon {
+                right: 6.5%;
+            }
+
+        }
+        @media only screen and (min-width: 701px) {
+            
+            #search-icon {
+                right: 8.5%;
+            }
+
+        }
+
+        #search-icon:hover svg g {
+            fill: #D3A121;
+        }
+        #search-icon:hover{
+            cursor: pointer;
+        }
+
+        .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+
+  
+  @media screen and (max-width: 651px) {
+   
+    #right-box {
+      position: relative;
+
+    }
+    td {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    table {
+        table-layout: fixed;
+    }
+  }
+
+  @media screen and (min-width: 651px) {
+    #right-box {
+      position: absolute;
+      top:0;
+      left: 50%;
+    }
+    table {
+        table-layout: fixed;
+    }
+    td {
+      width: 50%;
+      display: block;
+      text-align: center;
+    }
+  }
+
+  td {
+    min-height: 120px;
+  }
+  h1 {
+    width: 40%;
+    height: auto; 
+    position: absolute;
+    left: 53%;
+    top: -10%;
+    font-size: 17px;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 2; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+
+  h3 {
+    width: 40%;
+    height: auto; 
+    position: absolute;
+    left: 53%;
+    font-size: 13px;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 2; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    text-align: left;
+    top: 30px;
+
+  }
+
+  h4 {
+    width: 40%;
+    height: auto; 
+    position: absolute;
+    left: 53%;
+    font-size: 13px;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 2; 
+    text-overflow: ellipsis;
+    text-align: left;
+    top: 45px;
+    white-space: initial;
+
+  }
+  .box-score {
+    width: 40%;
+    height: auto; 
+    position: absolute;
+    font-size:20px;
+    overflow: hidden; 
+    height: 50px;
+    width: 54px;
+    text-align: center;
+  }
+
+  .score {
+    margin-top: 2px;
+  }
+
+  .match {
+    font-size: 12px;
+    margin-top: -15px;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #D3A121; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #D3A121; 
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+
+    </style>
+  </head>
+  <body>
+    <input id="search-input" style="position: fixed; border: 3px solid black;  height: 35px; font-size: 200%; color: white; background-color: transparent; border: none; border-bottom: 3px solid #D3A121!important; top: 10px; text-align: center; left: 10%; text-align: left;" type="text"  placeholder="Search"/>
+   <div id="search-icon" style="position: fixed; zoom: 90%">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="50px" height="50px"><g fill="#fffdfd" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M21,3c-9.39844,0 -17,7.60156 -17,17c0,9.39844 7.60156,17 17,17c3.35547,0 6.46094,-0.98437 9.09375,-2.65625l12.28125,12.28125l4.25,-4.25l-12.125,-12.09375c2.17969,-2.85937 3.5,-6.40234 3.5,-10.28125c0,-9.39844 -7.60156,-17 -17,-17zM21,7c7.19922,0 13,5.80078 13,13c0,7.19922 -5.80078,13 -13,13c-7.19922,0 -13,-5.80078 -13,-13c0,-7.19922 5.80078,-13 13,-13z"></path></g></g></svg>
+   </div>
+    <div class="center">
+      <iframe id="player-iframe" style="position: fixed; top: 8%;display: none;" width="560" height="315" scrolling="no" src="https://www.edzy.tech/web/player.html" frameborder="0"></iframe>
+        <iframe id="main-player-2" style="position: fixed; display: none;" width="560" height="315" src="" title="Loader" frameborder="0"></iframe>
+        <div id="loading-video-header" style="display: none;position: fixed;color: white;  font-weight: 300; zoom: 150%; color: #D3A121;"> Searching Videos</div>
+    </div>
+    <div id="content" style="color: white; position: fixed;width:100%;overflow-x: hidden!important;">
+        <div class="container" id="main-container-boxes" style="overflow-y:auto;overflow-x: hidden!important;overflow: scroll;bottom:30px;position:fixed; width: 92.5%; left: 5%;">
+          
+            <table style="display:table;" id="table-main">
+            </table>
+            
+          </div>
+           
+    </div>
+    <footer style="position: fixed; bottom:0px; color: #D3A121; padding: 10px; text-align: right;">
+      &copy; 2023-2024 Pleom LLC
+    </footer>
+  </body>
+  <script src="sidepanel.js"></script>
+</html>
